@@ -7,5 +7,5 @@ void print_menu()
 
 void find_module(int a, int m)
 {
-    cout << "a mod m is " << a % m << endl;
+    cout << FGRN("a mod m is ") << a % m << endl;
 }

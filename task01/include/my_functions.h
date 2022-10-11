@@ -2,6 +2,7 @@
 #define MY_FUNCTION_H
 
 #include <iostream>
+#include "colors.h"
 
 using std::cin;
 using std::cout;

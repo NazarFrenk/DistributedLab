@@ -1,5 +1,6 @@
 #include <iostream>
 #include "my_functions.h"
+#include "colors.h"
 
 using std::cin;
 using std::cout;
@@ -9,9 +10,9 @@ int main()
 {
     int m, a;
 
-    cout << "Enter m: ";
+    cout << FYEL("Enter m: ");
     cin >> m;
-    cout << "Enter a: ";
+    cout << FYEL("Enter a: ");
     cin >> a;
 
     cout << "m is: " << m << endl;
