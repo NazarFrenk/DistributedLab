@@ -29,6 +29,10 @@ int main()
             break;
         case 3:
             arith->find_pow_module();
+            break;
+        case 4:
+            arith->linear_equation();
+            break;
         case 5:
             arith->prime_number();
             break;
