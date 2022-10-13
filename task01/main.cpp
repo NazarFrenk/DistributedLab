@@ -28,7 +28,7 @@ int main()
             arith->find_module();
             break;
         case 5:
-            arith->simple_number();
+            arith->prime_number();
             break;
         case 6:
             isRun = false;

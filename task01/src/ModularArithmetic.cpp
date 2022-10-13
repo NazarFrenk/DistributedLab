@@ -1,10 +1,6 @@
 #include "ModularArithmetic.h"
 
-ModularArithmetic::ModularArithmetic(/* args */)
-{
-}
-
-ModularArithmetic::~ModularArithmetic()
+ModularArithmetic::ModularArithmetic()
 {
 }
 
@@ -41,7 +37,7 @@ void ModularArithmetic::find_module()
     cout << FGRN("a mod m is ") << a % m << endl;
 }
 
-void ModularArithmetic::simple_number()
+void ModularArithmetic::prime_number()
 {
     vector<int> result;
     bool is_prime = true;
@@ -80,10 +76,17 @@ void ModularArithmetic::simple_number()
         ++A;
     }
 
-    if (result.empty())
+    if (!result.empty())
     {
-        cout << FRED("There is no prime number between A and B");
+        int random = rand() % result.size();
+        cout << FGRN("Random prime number between A and B is ") << result[random] << endl;
     }
-    
-    cout << endl;
+    else
+    {
+        cout << FRED("There is no prime number between A and B") << endl;
+    }
+}
+
+ModularArithmetic::~ModularArithmetic()
+{
 }
