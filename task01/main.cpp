@@ -27,6 +27,8 @@ int main()
         case 2:
             arith->find_module();
             break;
+        case 3:
+            arith->find_pow_module();
         case 5:
             arith->prime_number();
             break;

@@ -19,6 +19,7 @@ public:
     void print_menu();
     void set_m();
     void find_module();
+    void find_pow_module();
     void prime_number();
     ~ModularArithmetic();
 };
