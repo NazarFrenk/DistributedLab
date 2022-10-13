@@ -10,6 +10,7 @@ void ModularArithmetic::print_menu()
     cout << FYEL("Switch:") << endl;
     cout << FYEL("1 - enter module m") << endl;
     cout << FYEL("2 - solve a mod m = x") << endl;
+    cout << FYEL("3 - solve a^b mod m = x") << endl;
     cout << FYEL("5 - find prime number between A and B") << endl;
     cout << FYEL("6 - exit") << endl;
     cout << endl;
@@ -18,8 +19,16 @@ void ModularArithmetic::print_menu()
 void ModularArithmetic::set_m()
 {
     int module;
-    cout << FYEL("Enter m: ");
-    cin >> m;
+    do
+    {
+        cout << FYEL("Enter m: ");
+        cin >> m;
+        if (m <= 0)
+        {
+            cout << FYEL("m must be > 0") << endl;
+        }
+
+    } while (m <= 0);
 }
 
 void ModularArithmetic::find_module()
@@ -35,6 +44,10 @@ void ModularArithmetic::find_module()
     }
 
     cout << FGRN("a mod m is ") << a % m << endl;
+}
+
+void ModularArithmetic::find_pow_module()
+{
 }
 
 void ModularArithmetic::prime_number()
