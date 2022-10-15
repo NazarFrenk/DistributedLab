@@ -22,7 +22,7 @@ int main()
         switch (choice)
         {
         case 1:
-            arith->set_m();
+            arith->set_number();
             break;
         case 2:
             arith->find_module();
