@@ -31,7 +31,7 @@ ECPoint ECPoint::ScalarMult(ECPoint a, long int k)
 }
 std::string ECPoint::ECPointToString(ECPoint point)
 {
-    return "";
+    return FBLU("Here will be point");
 }
 void ECPoint::PrintECPoint(ECPoint point)
 {
