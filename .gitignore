@@ -31,4 +31,5 @@
 *.out
 *.app
 task01/build
+task02/build
 .vscode/
