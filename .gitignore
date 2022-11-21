@@ -32,4 +32,5 @@
 *.app
 task01/build
 task02/build
+task03/build
 .vscode/
