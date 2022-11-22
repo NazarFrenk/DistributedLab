@@ -73,31 +73,31 @@ void ModularArithmetic::find_pow_module()
     {
         set_number();
     }
-    
-        // convert b to binary
-        std::string binary = std::bitset<8>(b).to_string();
 
-        t = a;
-        bool init = false;
+    // convert b to binary
+    std::string binary = std::bitset<8>(b).to_string();
 
-        int len = binary.length();
-        while (len--)
+    t = a;
+    bool init = false;
+
+    int len = binary.length();
+    while (len--)
+    {
+        if (binary[len] == '1')
         {
-            if (binary[len] == '1')
+            if (!init)
             {
-                if (!init)
-                {
-                    d = a % m;
-                    init = true;
-                }
-                else
-                {
-                    d = (d * t) % m;
-                }
+                d = a % m;
+                init = true;
             }
-            t = (t * t) % m;
+            else
+            {
+                d = (d * t) % m;
+            }
         }
-        cout << FGRN("Answer is: ") << d << endl;
+        t = (t * t) % m;
+    }
+    cout << FGRN("Answer is: ") << d << endl;
 }
 
 void ModularArithmetic::linear_equation()
@@ -116,36 +116,46 @@ void ModularArithmetic::prime_number()
     cout << FYEL("Enter B: ");
     cin >> B;
 
-    while (A < B)
+    bool prime[B + 1];
+    std::memset(prime, true, sizeof(prime));
+
+    for (int p = 2; p * p <= B; p++)
     {
-        is_prime = true;
-
-        // 0 and 1 are not prime numbers
-        if (A == 0 || B == 1)
+        // If prime[p] is not changed, then it is a prime
+        if (prime[p] == true)
         {
-            is_prime = false;
-        }
-
-        for (int i = 2; i <= A / 2; ++i)
-        {
-            if (A % i == 0)
+            // Update all multiples of p greater than or
+            // equal to the square of it numbers which are
+            // multiple of p and are less than p^2 are
+            // already been marked.
+            for (int i = p * p; i <= B; i += p)
             {
-                is_prime = false;
-                break;
+                prime[i] = false;
             }
         }
+    }
 
-        if (is_prime)
+    // Add all prime numbers to result vector
+    for (int p = 2; p <= B; p++)
+    {
+        if (prime[p])
         {
-            result.push_back(A);
+            result.push_back(p);
         }
-
-        ++A;
     }
 
     if (!result.empty())
     {
-        int random = rand() % result.size();
+        bool find = false;
+        int random;
+        while (!find)
+        {
+            random = rand() % result.size() - 1;
+            if (!(result[random] <= A))
+            {
+                find = true;
+            }
+        }
         cout << FGRN("Random prime number between A and B is ") << result[random] << endl;
     }
     else

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include <bitset>
+#include <bits/stdc++.h>
 #include "colors.h"
 
 using std::cin;
