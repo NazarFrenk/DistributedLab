@@ -9,6 +9,7 @@ using std::endl;
 
 int main()
 {
+    /*
     cout << BOLD(FYEL("BigInt tests")) << endl;
     BigInt first("12345");
     cout << FBLU("The number of digits in first big integer = ") << Length(first) << endl;
@@ -75,13 +76,13 @@ int main()
         fact = BigInt::Factorial(i);
         cout << FBLU("Factorial of ") << i << FBLU(" = ") << fact << endl;
     }
-
+    */
     cout << BOLD(FYEL("Generate default ECPoint")) << endl;
     ECPoint *point1 = new ECPoint();
     ECPoint::PrintECPoint(*point1);
 
     cout << BOLD(FYEL("ECPoint creation with pre-defined")) << endl;
-    ECPoint *point2 = new ECPoint(25, 50);
+    ECPoint *point2 = new ECPoint(4, 3);
     ECPoint::PrintECPoint(*point2);
 
     cout << BOLD(FYEL("Add 2 ECPoints")) << endl;
