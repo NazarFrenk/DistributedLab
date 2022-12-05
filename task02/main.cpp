@@ -80,16 +80,32 @@ int main()
     cout << BOLD(FYEL("Generate default ECPoint")) << endl;
     ECPoint *point1 = new ECPoint();
     ECPoint::PrintECPoint(*point1);
+    if (ECPoint::IsOnCurveCheck(*point1))
+    {
+        cout << BOLD(FGRN("Point is on curve")) << endl;
+    }
+    else
+    {
+        cout << FRED("Point isn't on curve") << endl;
+    }
 
     cout << BOLD(FYEL("ECPoint creation with pre-defined")) << endl;
-    ECPoint *point2 = new ECPoint(4, 3);
+    ECPoint *point2 = new ECPoint(2, 1);
     ECPoint::PrintECPoint(*point2);
-
+    cout << BOLD(FYEL("Check if ECPoint1 is on curve")) << endl;
+    if (ECPoint::IsOnCurveCheck(*point2))
+    {
+        cout << BOLD(FGRN("Point is on curve")) << endl;
+    }
+    else
+    {
+        cout << FRED("Point isn't on curve") << endl;
+    }
     cout << BOLD(FYEL("Add 2 ECPoints")) << endl;
     ECPoint point3 = ECPoint::AddECPoints(*point1, *point2);
     ECPoint::PrintECPoint(point3);
 
-    cout << BOLD(FYEL("Check if ECPoint is on curve")) << endl;
+    cout << BOLD(FYEL("Check if ECPoint2 is on curve")) << endl;
     if (ECPoint::IsOnCurveCheck(point3))
     {
         cout << BOLD(FGRN("Point is on curve")) << endl;
@@ -100,12 +116,29 @@ int main()
     }
 
     cout << BOLD(FYEL("Doudle ECPoint")) << endl;
-    ECPoint::DoubleECPoints(point3);
+    point3 = ECPoint::DoubleECPoints(point3);
     ECPoint::PrintECPoint(point3);
-
+    if (ECPoint::IsOnCurveCheck(point3))
+    {
+        cout << BOLD(FGRN("Point is on curve")) << endl;
+    }
+    else
+    {
+        cout << FRED("Point isn't on curve") << endl;
+    }
+    
+    ECPoint *point4 = new ECPoint(6, 16);
     cout << BOLD(FYEL("Scalar ECPoint")) << endl;
-    ECPoint::ScalarMult(point3, 5);
-    ECPoint::PrintECPoint(point3);
+    *point4 = ECPoint::ScalarMult(*point4, 5);
+    ECPoint::PrintECPoint(*point4);
+    if (ECPoint::IsOnCurveCheck(point3))
+    {
+        cout << BOLD(FGRN("Point is on curve")) << endl;
+    }
+    else
+    {
+        cout << FRED("Point isn't on curve") << endl;
+    }
 
     return 0;
 }

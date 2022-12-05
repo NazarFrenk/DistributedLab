@@ -13,7 +13,7 @@ using std::endl;
 class ECPoint
 {
 private:
-    long long a = 3, b = 2;
+    long long a = 3, b = 2, p = 5;
     long long X, Y;
     static std::string ECPointToString(ECPoint point); // Convert point to string
     friend std::ostream& operator<<(std::ostream& os, const ECPoint& point);
