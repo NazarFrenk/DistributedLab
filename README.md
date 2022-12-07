@@ -11,7 +11,7 @@ make -j$(nproc)
 ```
 Run compiled file
 
-Run python example for Diffie–Hellman algorithm:
+# Run python example for Diffie–Hellman algorithm:
 ```
 cd task03
 python3 DH.py
